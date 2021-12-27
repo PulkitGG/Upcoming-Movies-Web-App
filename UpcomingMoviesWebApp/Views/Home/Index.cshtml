@@ -1,0 +1,59 @@
+﻿
+@using UpcomingMoviesWebApp.Models
+@model List<UpcomingMoviesWebApp.Models.MovieViewModel>
+@{ ViewData["Title"] = "Home Page"; }
+
+
+<!-- Gallery -->
+<div class="row">
+    @foreach (var movie in Model)
+    {
+        <div class="col-lg-4" style="margin-bottom: 20px;">
+            <div class="card" style="width: 18rem;">
+                <img src="@movie.ImagePath" class="card-img-top" alt="@movie.MovieName"
+                     onclick="onClick(this,'@movie.MovieName','@movie.Genre','@movie.ReleaseDate.Value.ToString("dd-MMM-yyyy")','@movie.Rating','@movie.Votes','@movie.Description','@movie.MovieId')">
+
+                <div class="card-body">
+                    <h5 class="card-title">@movie.MovieName</h5>
+                    <p class="card-text"><small class="text-muted">Release Date : @movie.ReleaseDate.Value.ToString("dd-MMM-yyyy")</small></p>
+                    <p class="card-text"><small class="text-muted">Genre : @movie.Genre</small></p>
+                </div>
+            </div>
+        </div>}
+
+</div>
+<!-- Gallery -->
+<br />
+<br />
+
+<!-- Modal for full size images on click-->
+<div id="modal-view-image" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="movie-title">-</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <img id="movie-poster-view" class="w3-image center-block img-responsive" width="240" height="320">
+                    <br />
+                    <br />
+                    <p><b>Rating: </b><span id="movie-rating">-</span><span>/10 (</span><span id="movie-votes">-</span><span> votes)</span></p>
+                    <p><b>Genres: </b><span id="movie-genre">-</span></p>
+                    <p><b>Release Date: </b><span id="movie-release-date">-</span></p>
+                    <p><span id="movie-desc"></span></p>
+
+                </center>
+            </div>
+
+            <div class="modal-footer">
+                <a href="" class="btn btn-primary" id="movie-db" target="_blank" role="button">Check it out on TheMovieDB</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for full size images on click-->
