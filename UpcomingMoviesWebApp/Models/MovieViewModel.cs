@@ -10,5 +10,6 @@ namespace UpcomingMoviesWebApp.Models
         public string Description { get; set; }
         public int Votes { get; set; }
         public decimal Rating { get; set; }
+        public int MovieId { get; set; }
     }
 }

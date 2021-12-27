@@ -50,6 +50,7 @@ namespace UpcomingMoviesWebApp.Controllers
                         mv.Description = movie.Overview.Replace(",", "").Replace("'", "");
                         mv.Votes = movie.VoteCount;
                         mv.Rating = movie.VoteAverage;
+                        mv.MovieId = movie.Id;
 
 
                         List<string> genrelist = new List<string>();

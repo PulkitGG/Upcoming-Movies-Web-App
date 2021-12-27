@@ -11,7 +11,7 @@
         <div class="col-lg-4" style="margin-bottom: 20px;">
             <div class="card" style="width: 18rem;">
                 <img src="@movie.ImagePath" class="card-img-top" alt="@movie.MovieName"
-                     onclick="onClick(this,'@movie.MovieName','@movie.Genre','@movie.ReleaseDate.Value.ToString("dd-MMM-yyyy")','@movie.Rating','@movie.Votes','@movie.Description')">
+                     onclick="onClick(this,'@movie.MovieName','@movie.Genre','@movie.ReleaseDate.Value.ToString("dd-MMM-yyyy")','@movie.Rating','@movie.Votes','@movie.Description','@movie.MovieId')">
 
                 <div class="card-body">
                     <h5 class="card-title">@movie.MovieName</h5>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="modal-footer">
-                <a href="" class="btn btn-primary" id="movie-db" role="button">Check it out on TheMovieDB</a>
+                <a href="" class="btn btn-primary" id="movie-db" target="_blank" role="button">Check it out on TheMovieDB</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
